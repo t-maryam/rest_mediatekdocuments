@@ -441,8 +441,9 @@ class MyAccessBDD extends AccessBDD {
        $requeteC = "DELETE FROM commande WHERE id = :id";
        return $this->conn->updateBDD($requeteC, ['id' => $champs['id']]);
    }
+   
    /**
-    * vérifie un utilisateur et retourne son service
+    * vérifie l'habilitation de l'utilisateur et retourne son service
     */
    private function selectUtilisateur(?array $champs) : ?array {
        if (empty($champs) || !array_key_exists('login', $champs) || !array_key_exists('pwd', $champs)) {
