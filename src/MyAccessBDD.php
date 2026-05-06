@@ -51,7 +51,9 @@ class MyAccessBDD extends AccessBDD {
             case "suivi":
                 return $this->selectTableSimple("suivi");
             case "commanderevue":
-                return $this->selectCommandesRevue($champs);   
+                return $this->selectCommandesRevue($champs);
+            case "utilisateur":
+                return $this->selectUtilisateur($champs);    
             case "" :
                 // return $this->uneFonction(parametres);
             default:
@@ -438,6 +440,22 @@ class MyAccessBDD extends AccessBDD {
        $this->conn->updateBDD($requeteAbo, ['id' => $champs['id']]);
        $requeteC = "DELETE FROM commande WHERE id = :id";
        return $this->conn->updateBDD($requeteC, ['id' => $champs['id']]);
+   }
+   /**
+    * vérifie un utilisateur et retourne son service
+    */
+   private function selectUtilisateur(?array $champs) : ?array {
+       if (empty($champs) || !array_key_exists('login', $champs) || !array_key_exists('pwd', $champs)) {
+           return null;
+       }
+       $requete  = "SELECT u.id, u.login, s.id as idService, s.libelle as service ";
+       $requete .= "FROM utilisateur u ";
+       $requete .= "JOIN service s ON u.idService = s.id ";
+       $requete .= "WHERE u.login = :login AND u.pwd = :pwd";
+       return $this->conn->queryBDD($requete, [
+           'login' => $champs['login'],
+           'pwd'   => $champs['pwd']
+       ]);
    }
     
     
