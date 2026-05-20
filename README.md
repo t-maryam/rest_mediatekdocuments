@@ -1,4 +1,4 @@
-# rest_mediatekdocuments – Atelier 2
+# API Rest MediatekDocuments
 
 > Ce dépôt présente les fonctionnalités **ajoutées** dans le cadre de l'Atelier 2.
 > Pour la présentation de l'API d'origine, de sa structure et de son exploitation, consulter le dépôt d'origine :
