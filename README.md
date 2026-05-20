@@ -97,21 +97,4 @@ GET http://mediatek86.atwebpages.com/livre
 ```
 Avec les identifiants Basic Auth configurés dans l'application (voir `App.config` de MediatekDocuments).
 
-## Structure du dépôt
-
-```
-rest_mediatekdocuments/
-├── src/
-│   ├── index.php          # Point d'entrée de l'API
-│   ├── Controle.php       # Contrôleur : routage des requêtes
-│   ├── AccessBDD.php      # Classe abstraite d'accès à la BDD
-│   ├── MyAccessBDD.php    # Requêtes SQL spécifiques (fonctionnalités ajoutées)
-│   ├── Connexion.php      # Connexion MySQL (PDO)
-│   ├── Url.php            # Gestion de l'URL
-│   └── .env               # Variables d'environnement (non versionné)
-├── vendor/                # Dépendances Composer (non versionnées)
-├── docs/                  # Documentation technique (phpDocumentor)
-├── .htaccess              # Routage et sécurité
-├── composer.json          # Dépendances PHP
-└── mediatek86.sql         # Script de création et remplissage de la BDD
 ```
